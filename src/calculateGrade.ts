@@ -15,3 +15,5 @@ function calculateGrade(score: number): string {
     }
   }
 }
+
+export default calculateGrade
