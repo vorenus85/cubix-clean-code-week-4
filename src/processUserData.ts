@@ -3,24 +3,24 @@
 function processUserData(
   x: number,
   y: string,
-  z: boolean,
-  a: string[],
+  findUser: boolean,
+  users: string[],
   b: number,
-  c: boolean,
-  d: string,
-  e: number
+  logProcessing: boolean,
+  searchedUser: string,
+  usersLength: number
 ): string {
   let result = ''
-  if (z && c) {
-    for (let i = 0; i < a.length; i++) {
-      if (a[i] === d) {
-        result += 'User found: ' + d + ' at index ' + i
+  if (findUser && logProcessing) {
+    for (let i = 0; i < users.length; i++) {
+      if (users[i] === searchedUser) {
+        result += 'User found: ' + searchedUser + ' at index ' + i
         break
       }
     }
-  } else if (!z && c) {
+  } else if (!findUser && logProcessing) {
     let count = 0
-    while (count < e) {
+    while (count < usersLength) {
       result += 'Processing... '
       count++
     }
@@ -29,3 +29,5 @@ function processUserData(
   }
   return result
 }
+
+export default processUserData
