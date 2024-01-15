@@ -1,20 +1,17 @@
 // TODO Apply clean code basics, calculate metricsHints:
 
 function processUserData(
-  x: number,
-  y: string,
   findUser: boolean,
   users: string[],
-  b: number,
   logProcessing: boolean,
-  searchedUser: string,
+  userToSearch: string,
   usersLength: number
 ): string {
   let result = ''
   if (findUser && logProcessing) {
     for (let i = 0; i < users.length; i++) {
-      if (users[i] === searchedUser) {
-        result += 'User found: ' + searchedUser + ' at index ' + i
+      if (users[i] === userToSearch) {
+        result += 'User found: ' + userToSearch + ' at index ' + i
         break
       }
     }
