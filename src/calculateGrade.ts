@@ -1,19 +1,11 @@
 // TODO Reduce cyclomatic complexity
 
 function calculateGrade(score: number): string {
-  if (score >= 90) {
-    return 'A'
-  }
+  const gradeThresholds = [90, 80, 70]
+  const grades = ['A', 'B', 'C', 'D']
 
-  if (score >= 80) {
-    return 'B'
-  }
-
-  if (score >= 70) {
-    return 'C'
-  }
-
-  return 'D'
+  const index = gradeThresholds.findIndex((threshold) => score >= threshold)
+  return grades[index] || 'D'
 }
 
 export default calculateGrade
