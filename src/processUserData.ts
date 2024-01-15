@@ -1,30 +1,35 @@
-// TODO Apply clean code basics, calculate metricsHints:
+// TODO Apply clean code basics, calculate metrics:
 
 function processUserData(
   findUser: boolean,
   users: string[],
   logProcessing: boolean,
-  userToSearch: string,
-  usersLength: number
+  userToSearch: string
 ): string {
-  let result = ''
-  if (findUser && logProcessing) {
-    for (let i = 0; i < users.length; i++) {
-      if (users[i] === userToSearch) {
-        result += 'User found: ' + userToSearch + ' at index ' + i
-        break
-      }
-    }
-  } else if (!findUser && logProcessing) {
-    let count = 0
-    while (count < usersLength) {
-      result += 'Processing... '
-      count++
+  if (logProcessing) {
+    if (findUser) {
+      return findUserMethod(users, userToSearch)
+    } else {
+      return logOutProcessing(users)
     }
   } else {
-    result = 'No action taken.'
+    return 'No action taken.'
   }
-  return result
+
+  function logOutProcessing(users: string[]): string {
+    let result = ''
+    for (const _ of users) {
+      result += 'Processing... '
+    }
+    return result
+  }
+
+  function findUserMethod(users: string[], userToSearch: string): string {
+    const index = users.indexOf(userToSearch)
+    return index !== -1
+      ? 'User found: ' + userToSearch + ' at index ' + index
+      : ''
+  }
 }
 
 export default processUserData
