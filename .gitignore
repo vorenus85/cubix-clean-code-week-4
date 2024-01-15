@@ -42,7 +42,6 @@ lib/
 tslint.json
 
 # Ignore Webpack build directory and manifest file
-/dist/
 manifest.json
 
 # Ignore Yarn integrity file
@@ -50,5 +49,3 @@ manifest.json
 
 # Ignore .npmrc file
 .npmrc
-
-/report
